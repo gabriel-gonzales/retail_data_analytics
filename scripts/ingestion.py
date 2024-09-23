@@ -77,9 +77,9 @@ def main():
         raw_data_path = "data/raw/"
         
         # Leitura dos datasets
-        sales_df = read_csv(spark, f"{raw_data_path}sales data-set.csv")
-        features_df = read_csv(spark, f"{raw_data_path}Features data set.csv")
-        stores_df = read_csv(spark, f"{raw_data_path}stores data-set.csv")
+        sales_df = read_csv(spark, f"{raw_data_path}sales.csv")
+        features_df = read_csv(spark, f"{raw_data_path}features.csv")
+        stores_df = read_csv(spark, f"{raw_data_path}stores.csv")
         
         # Validação dos datasets
         sales_df_clean = validate_dataframe(sales_df, "Sales Data")
@@ -88,8 +88,8 @@ def main():
         
         # Salvando os datasets processados
         save_parquet(sales_df_clean, "data/processed/sales_data.parquet") 
-        # save_parquet(features_df_clean, "data/processed/features_data.parquet")
-        # save_parquet(stores_df_clean, "data/processed/stores_data.parquet")
+        save_parquet(features_df_clean, "data/processed/features_data.parquet")
+        save_parquet(stores_df_clean, "data/processed/stores_data.parquet")
         
         logger.info("Ingestão de dados concluída com sucesso.")
         

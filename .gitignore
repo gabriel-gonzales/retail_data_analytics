@@ -40,3 +40,6 @@ var/
 *.env
 .env/
 .env.*
+
+# Diretório de outputs
+output/
